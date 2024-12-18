@@ -98,4 +98,8 @@ abstract class NavigationHistory with ChangeNotifier {
   ///
   /// only works for web
   void forward();
+
+  bool canGo(int delta);
+
+  void go(int delta);
 }

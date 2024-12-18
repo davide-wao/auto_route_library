@@ -59,6 +59,24 @@ class NavigationHistoryImpl extends NavigationHistory {
   }
 
   @override
+  bool canGo(int delta) {
+    if (delta > 0) {
+      throw FlutterError(
+        'forward navigation is not supported for non-web platforms');
+    } else {
+      return length + delta > 1;
+    }
+  }
+
+  @override
+  void go(int delta) {
+    if (canGo(delta)) {
+      _entries.removeRange(length + delta, length);
+      router.navigateAll([_entries.last.route]);
+    }
+  }
+
+  @override
   Object? get pathState =>
       throw FlutterError('pathState is not supported for non-web platforms');
 

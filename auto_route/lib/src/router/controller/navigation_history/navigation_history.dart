@@ -22,6 +22,16 @@ class NavigationHistoryImpl extends NavigationHistory {
   }
 
   @override
+  void go(int delta) {
+    throw Exception("Stub implementation");
+  }
+
+  @override
+  bool canGo(int delta) {
+    throw Exception("Stub implementation");
+  }
+
+  @override
   int get length => throw Exception("Stub implementation");
 
   @override

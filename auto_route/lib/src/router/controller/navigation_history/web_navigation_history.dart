@@ -21,6 +21,14 @@ class NavigationHistoryImpl extends NavigationHistory {
     _history.back();
   }
 
+  @override
+  bool canGo(int delta) {
+    final newIndex = _currentIndex + delta;
+    return newIndex >= 0 && newIndex < length;
+  }
+  @override
+  void go(int delta) => _history.go(delta);
+
   int get _currentIndex {
     final state = _history.state.dartify();
     if (state is Map) {

@@ -427,6 +427,10 @@ abstract class RoutingController with ChangeNotifier {
   /// See [NavigationHistory.back]
   void back() => navigationHistory.back();
 
+  bool canGo(int delta) => navigationHistory.canGo(delta);
+
+  void go(int delta) => navigationHistory.go(delta);
+
   /// See [NavigationHistory.pushPathState]
   void pushPathState(Object? state) => navigationHistory.pushPathState(state);
 
